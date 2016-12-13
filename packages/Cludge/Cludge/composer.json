@@ -1,0 +1,14 @@
+{
+    "name": "cludge/cludge",
+    "description": "cludge",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Simon Davies",
+            "email": "noodlewitt@noodlewitt.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
