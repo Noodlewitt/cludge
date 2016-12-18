@@ -3,6 +3,7 @@
 namespace Cludge\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Cludge\Helpers\Helpers;
 
 class CludgeServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,14 @@ class CludgeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //we publish this to the default namespace so I don't have to re-do all the login controller stuff - wish laravel
+        //added a way to customise the route namespace.
+        $this->app['view']->addLocation(__DIR__.'/../Views/');
+
+        //publish a sensible default config if it's not there.
+        $this->publishes([
+            __DIR__.'/../Config/cludge.php' => config_path('cludge.php'),
+        ]);
     }
 
     /**
@@ -24,13 +32,14 @@ class CludgeServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        $this->app->singleton('Helpers', function($app)
+        {
+            return new Helpers;
+        });
+
         $this->registerDependencies([
-            FormServiceProvider::class,
-            CommandsServiceProvider::class,
-            EloquentServiceProvider::class,
-            PageServiceProvider::class,
-            MenuServiceProvider::class,
-            RapydServiceProvider::class,
+            AuthServiceProvider::class,
+            RouteServiceProvider::class,
         ]);
     }
 

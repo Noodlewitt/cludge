@@ -2,7 +2,7 @@
 
 namespace Cludge\Providers;
 
-use Cludge\Helpers\Helpers;
+use Cludge\Facades\Helpers;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -15,7 +15,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\Http\Controllers';
+    protected $namespace = 'Cludge\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -56,7 +56,7 @@ class RouteServiceProvider extends ServiceProvider
             'middleware' => 'web',
             'namespace' => $this->namespace,
         ], function ($router) {
-            require base_path('routes/web.php');
+            require Helpers::base_path('routes/web.php');
         });
     }
 
