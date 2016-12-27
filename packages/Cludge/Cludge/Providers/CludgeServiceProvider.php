@@ -37,6 +37,12 @@ class CludgeServiceProvider extends ServiceProvider
             return new Helpers;
         });
 
+        $this->app->singleton('Actions', function($app)
+        {
+            return new Actions;
+        });
+
+
         $this->registerDependencies([
             AuthServiceProvider::class,
             RouteServiceProvider::class,

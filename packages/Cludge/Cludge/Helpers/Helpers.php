@@ -20,4 +20,13 @@ class Helpers
     public function base_path($file = NULL){
        return __DIR__.'/../'.$file;
     }
+
+    /**
+     * remove input issues from string
+     * @param $in
+     */
+    public function clean($in){
+        $out = trim($in, ' \\/\'\"'); //remove some weird charactors
+        return $out;
+    }
 }

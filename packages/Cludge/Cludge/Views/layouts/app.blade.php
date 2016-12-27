@@ -60,13 +60,13 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{ url('/logout') }}"
+                                        <a href="{{ route(config('cludge.url_namespace').'.logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Logoutaa
                                         </a>
 
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ route(config('cludge.url_namespace').'.logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>

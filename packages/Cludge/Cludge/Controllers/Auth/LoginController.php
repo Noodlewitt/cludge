@@ -22,10 +22,10 @@ class LoginController extends Controller
 
     /**
      * Where to redirect users after login.
-     *
+     * TODO: this needs updateing.
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/cludge';
 
     /**
      * Create a new controller instance.

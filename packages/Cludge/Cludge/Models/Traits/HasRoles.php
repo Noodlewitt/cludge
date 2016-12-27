@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits;
+namespace Cludge\Models\Traits;
 
 use Cludge\Models\Role;
 use Input;
